@@ -25,6 +25,7 @@
 ## 🧩 시스템 구성도
 
 Client (Console)
+'''
 │
 ├── 회원 관리 (Member)
 │ ├── 회원 가입 / 로그인
@@ -39,7 +40,7 @@ Client (Console)
 ├── 기본 요금 계산
 ├── 추가 요금 및 할인 (Decorator Pattern)
 └── 결제 내역 저장 (CSV 기반)
-
+'''
 
 ---
 

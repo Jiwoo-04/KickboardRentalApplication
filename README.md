@@ -24,24 +24,32 @@
 
 ## 🧩 시스템 구성도
 
-Client (Console)
-'''
+```plaintext
+📱 Client (Console Interface)
 │
-├── 회원 관리 (Member)
-│ ├── 회원 가입 / 로그인
-│ └── 회원 DB 관리 (mySQL)
+├── 👤 Member (회원 관리)
+│     ├── 회원 가입 / 로그인 / 로그아웃
+│     ├── 회원 정보 검증
+│     └── 회원 DB 관리 (mySQL)
 │
-├── 장비 관리 (Rental)
-│ ├── 자전거 / 킥보드 (Strategy Pattern)
-│ ├── 대여 / 반납
-│ └── 고장 신고
+├── 🚲 Rental (장비 관리)
+│     │ (고유 ID, 기본 요금, 시간당 요금, 상태)
+│     ├── 자전거 (Bicycle)
+│     │     ├── 대여 / 반납
+│     │     ├── 사용 시간 계산
+│     │     └── 고장 신고
+│     ├── 킥보드 (Kickboard)
+│     │     ├── 대여 / 반납
+│     │     ├── 사용 시간 계산
+│     │     └── 고장 신고
+│     └── 💡 Strategy Pattern 적용 (장비별 요금 계산 방식 분리)
 │
-└── 결제 관리 (Payment)
-├── 기본 요금 계산
-├── 추가 요금 및 할인 (Decorator Pattern)
-└── 결제 내역 저장 (CSV 기반)
-'''
-
+└── 💳 Payment (결제 관리)
+      ├── 기본 요금 계산 (자전거 / 킥보드)
+      ├── 추가 요금 / 할인 적용 (Decorator Pattern)
+      ├── 결제 내역 저장 (CSV 파일)
+      └── Tokenization(토큰화) 방식 결제 보안
+```
 ---
 
 ## ⚙️ 구현 상세

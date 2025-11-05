@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/디자인패턴 조별과제.iml" filepath="$PROJECT_DIR$/.idea/디자인패턴 조별과제.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KickboardRentalApplication.iml" filepath="$PROJECT_DIR$/KickboardRentalApplication.iml" />
     </modules>
   </component>
 </project>

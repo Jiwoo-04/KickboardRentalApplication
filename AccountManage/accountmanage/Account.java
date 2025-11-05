@@ -1,4 +1,4 @@
-package accountmanage;
+package AccountManage.accountmanage;
 
 import java.io.Console;
 import java.sql.PreparedStatement;

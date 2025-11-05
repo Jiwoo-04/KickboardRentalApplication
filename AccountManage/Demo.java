@@ -1,4 +1,5 @@
-import accountmanage.*;
+package AccountManage;
+
 import java.io.Console;
 import java.sql.SQLException;
 

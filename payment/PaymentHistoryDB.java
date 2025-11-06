@@ -1,36 +1,39 @@
 package payment;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * 결제 내역을 CSV 파일에 저장하는 클래스 (UTF-8 인코딩 적용)
+ */
 public class PaymentHistoryDB {
 
     private static final String FILE_NAME = "payment_history.csv";
 
-    public static void savePaymentRecord(String userName, String vehicleType,
-                                         int minutes, double totalFee,
-                                         boolean couponUsed) {
-        try {
-            boolean isNewFile = !(new File(FILE_NAME).exists());
+    public static void savePaymentRecord(String userID, String userName, String vehicleType,
+                                         int minutes, double totalFee, boolean couponUsed) {
+        boolean fileExists = new File(FILE_NAME).exists();
 
-            try (BufferedWriter writer = new BufferedWriter(
-                    new OutputStreamWriter(new FileOutputStream(FILE_NAME, true), "UTF-8"))) {
+        try (OutputStreamWriter writer = new OutputStreamWriter(
+                new FileOutputStream(FILE_NAME, true), StandardCharsets.UTF_8)) {
 
-                // 새 파일이면 BOM 추가 → Excel에서 UTF-8 한글 깨짐 방지
-                if (isNewFile) {
-                    writer.write('\uFEFF'); // BOM
-                    writer.write("사용자,이용수단,이용시간(분),결제금액(원),쿠폰사용,결제시간");
-                    writer.newLine();
-                }
-
-                String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-                String record = String.format("%s,%s,%d,%.2f,%s,%s\n",
-                        userName, vehicleType, minutes, totalFee,
-                        couponUsed ? "YES" : "NO", time);
-
-                writer.write(record);
+            // 파일이 처음 만들어질 때 헤더 추가
+            if (!fileExists) {
+                writer.write("UserID,UserName,VehicleType,Minutes,TotalFee,CouponUsed,DateTime\n");
             }
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String time = LocalDateTime.now().format(formatter);
+
+            // CSV 한 줄 형식: ID, 이름, 수단, 이용시간, 결제금액, 쿠폰사용, 시간
+            String record = String.format("%s,%s,%s,%d,%.2f,%s,%s\n",
+                    userID, userName, vehicleType, minutes, totalFee,
+                    couponUsed ? "YES" : "NO", time);
+
+            writer.write(record);
+            writer.flush();
 
             System.out.println("[DB] 결제 내역이 CSV 파일에 저장되었습니다.");
 

@@ -15,6 +15,9 @@ import java.util.Arrays;
 public class Account implements AutoCloseable{
     private PreparedStatement pstmt;
     private ResultSet rs;
+    //id와 name을 반환받기 위한 코드 추가 (심지승)
+    private String id;
+    private String name;
     Console console;
 
     Account(PreparedStatement pstmt, ResultSet rs) throws SQLException {
@@ -89,6 +92,16 @@ public class Account implements AutoCloseable{
         rs.updateRow();
         System.out.println("비밀번호가 변경되었습니다.");
         return true;
+    }
+
+    // ✅ ID 반환 메서드
+    public String getId() {
+        return id;
+    }
+
+    // ✅ 이름 반환 메서드
+    public String getName() {
+        return name;
     }
 
     /**

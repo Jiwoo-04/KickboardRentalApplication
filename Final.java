@@ -66,18 +66,33 @@ public class Final {
 
                 switch (userChoice) {
                     case 1 -> {
-                        // 대여 선택
+                        // ✅ 1단계: 탈것 종류 선택
                         System.out.println("\n[대여 선택]");
                         System.out.println("1. 자전거");
                         System.out.println("2. 스쿠터");
                         System.out.print("선택: ");
                         int vehicleChoice = Integer.parseInt(sc.nextLine());
 
-                        Vehicle vehicle;
+                        // ✅ 2단계: 개별 차량 선택
+                        Vehicle vehicle = null;
                         if (vehicleChoice == 1) {
-                            vehicle = new Bike("Bike-01");
+                            System.out.println("\n[자전거 선택]");
+                            System.out.println("1. Bike-01");
+                            System.out.println("2. Bike-02");
+                            System.out.println("3. Bike-03");
+                            System.out.print("선택: ");
+                            int bikeNum = Integer.parseInt(sc.nextLine());
+                            vehicle = new Bike("Bike-0" + bikeNum);
+
                         } else if (vehicleChoice == 2) {
-                            vehicle = new Scooter("Scooter-01");
+                            System.out.println("\n[스쿠터 선택]");
+                            System.out.println("1. Scooter-01");
+                            System.out.println("2. Scooter-02");
+                            System.out.println("3. Scooter-03");
+                            System.out.print("선택: ");
+                            int scooterNum = Integer.parseInt(sc.nextLine());
+                            vehicle = new Scooter("Scooter-0" + scooterNum);
+
                         } else {
                             System.out.println("잘못된 선택입니다.");
                             continue;
@@ -90,7 +105,13 @@ public class Final {
                         System.out.print("쿠폰을 사용하시겠습니까? (y/n): ");
                         boolean useCoupon = sc.nextLine().equalsIgnoreCase("y");
 
-                        // 요금 계산 (Rental + payment)
+                        // ✅ null 방지: account 객체에서 정보 확인
+                        if (account.getId() == null || account.getName() == null) {
+                            System.out.println("⚠ 사용자 정보가 올바르지 않습니다. 다시 로그인해주세요.");
+                            continue;
+                        }
+
+                        // ✅ 요금 계산 (Rental + payment)
                         Rental rental = new Rental(vehicle, minutes);
                         double total = rental.processPayment(useCoupon, account.getId(), account.getName());
 
@@ -103,6 +124,7 @@ public class Final {
 
                     case 2 -> {
                         System.out.println("\n==== 결제 내역 조회 ====");
+                        // ✅ PaymentHistoryViewer 내부에서 header 중복 방지 및 null 필터링 필요
                         PaymentHistoryViewer.viewPaymentHistory();
                     }
 

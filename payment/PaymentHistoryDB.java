@@ -12,33 +12,37 @@ public class PaymentHistoryDB {
 
     private static final String FILE_NAME = "payment_history.csv";
 
-    public static void savePaymentRecord(String userID, String userName, String vehicleType,
-                                         int minutes, double totalFee, boolean couponUsed) {
-        boolean fileExists = new File(FILE_NAME).exists();
+    public static void savePaymentRecord(String userID, String userName,
+                                         String vehicleID, int minutes,
+                                         double totalFee, boolean useCoupon) {
 
-        try (OutputStreamWriter writer = new OutputStreamWriter(
-                new FileOutputStream(FILE_NAME, true), StandardCharsets.UTF_8)) {
+        // ✅ userID나 userName이 null이면 저장하지 않음
+        if (userID == null || userName == null) {
+            System.out.println("[경고] 사용자 정보가 비어있어 결제 내역을 저장하지 않습니다.");
+            return;
+        }
 
-            // 파일이 처음 만들어질 때 헤더 추가
+        File file = new File(FILE_NAME);
+        boolean fileExists = file.exists();
+
+        try (BufferedWriter writer = new BufferedWriter(
+                new OutputStreamWriter(new FileOutputStream(file, true), StandardCharsets.UTF_8))) {
+
+            // ✅ 파일이 새로 만들어질 때만 헤더 추가
             if (!fileExists) {
                 writer.write("UserID,UserName,VehicleType,Minutes,TotalFee,CouponUsed,DateTime\n");
             }
 
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-            String time = LocalDateTime.now().format(formatter);
+            String couponText = useCoupon ? "YES" : "NO";
+            String now = java.time.LocalDateTime.now()
+                    .format(java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
-            // CSV 한 줄 형식: ID, 이름, 수단, 이용시간, 결제금액, 쿠폰사용, 시간
-            String record = String.format("%s,%s,%s,%d,%.2f,%s,%s\n",
-                    userID, userName, vehicleType, minutes, totalFee,
-                    couponUsed ? "YES" : "NO", time);
-
-            writer.write(record);
-            writer.flush();
-
-            System.out.println("[DB] 결제 내역이 CSV 파일에 저장되었습니다.");
+            // ✅ 실제 데이터만 기록
+            writer.write(String.format("%s,%s,%s,%d,%.2f,%s,%s%n",
+                    userID, userName, vehicleID, minutes, totalFee, couponText, now));
 
         } catch (IOException e) {
-            System.err.println("[DB 오류] 결제 내역 저장 중 문제 발생: " + e.getMessage());
+            System.err.println("[저장 오류] 결제 내역 저장 실패: " + e.getMessage());
         }
     }
 }

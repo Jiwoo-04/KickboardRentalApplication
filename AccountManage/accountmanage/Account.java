@@ -23,8 +23,11 @@ public class Account implements AutoCloseable{
     Account(PreparedStatement pstmt, ResultSet rs) throws SQLException {
         this.pstmt = pstmt;
         this.rs = rs;
+        this.id = rs.getString("id");
+        this.name = rs.getString("name");
         if((console = System.console()) == null) System.out.println("콘솔을 지원하지 않는 환경입니다.");
     }
+
 
     /**
      * 자동 자원 해제<br>

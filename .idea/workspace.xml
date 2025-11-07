@@ -5,17 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7a0a972-f6cc-4bc6-866f-f590d2448b5a" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Final.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment/PaymentHistoryViewer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/Demo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/Account.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/LoginService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/payment/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final.class" beforeDir="false" afterPath="$PROJECT_DIR$/Final.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final.java" beforeDir="false" afterPath="$PROJECT_DIR$/Final.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment/PaymentHistoryDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/payment/PaymentHistoryDB.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/payment/PaymentHistoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment/PaymentHistoryDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/TestPay.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment/TestPay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rental/Rental.java" beforeDir="false" afterPath="$PROJECT_DIR$/rental/Rental.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment/PaymentHistoryViewer.class" beforeDir="false" afterPath="$PROJECT_DIR$/payment/PaymentHistoryViewer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment/PaymentHistoryViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment/PaymentHistoryViewer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +45,7 @@
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;sim1&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;final&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/simjs/OneDrive/바탕 화면/KickboardRentalApplication&quot;

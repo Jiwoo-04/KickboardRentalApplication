@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7a0a972-f6cc-4bc6-866f-f590d2448b5a" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/Role.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Final.class" beforeDir="false" afterPath="$PROJECT_DIR$/Final.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Final.java" beforeDir="false" afterPath="$PROJECT_DIR$/Final.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/PaymentHistoryDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/payment/PaymentHistoryDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/PaymentHistoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment/PaymentHistoryDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/PaymentHistoryViewer.class" beforeDir="false" afterPath="$PROJECT_DIR$/payment/PaymentHistoryViewer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/PaymentHistoryViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment/PaymentHistoryViewer.java" afterDir="false" />
-    </list>
+    <list default="true" id="f7a0a972-f6cc-4bc6-866f-f590d2448b5a" name="변경" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,10 +34,26 @@
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;final&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/simjs/OneDrive/바탕 화면/KickboardRentalApplication&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/shavi/OneDrive/Desktop/KickboardRentalApplication-final/KickboardRentalApplication-final&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;모듈&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
+    &quot;애플리케이션.Demo.executor&quot;: &quot;Run&quot;,
+    &quot;애플리케이션.Final.executor&quot;: &quot;Debug&quot;
   }
 }</component>
   <component name="TaskManager">
@@ -58,7 +63,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1762323887199</updated>
+      <workItem from="1762498726595" duration="13478000" />
+      <workItem from="1762522756853" duration="8478000" />
+      <workItem from="1762565510947" duration="78000" />
+      <workItem from="1762566413745" duration="8257000" />
+      <workItem from="1762583077185" duration="5165000" />
+      <workItem from="1762588309342" duration="1763000" />
+      <workItem from="1762590199949" duration="377000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

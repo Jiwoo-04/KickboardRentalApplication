@@ -1,13 +1,12 @@
 import AccountManage.accountmanage.Account;
 import AccountManage.accountmanage.LoginService;
-import rental.Rental;
-import vehicle.Bike;
-import vehicle.Scooter;
-import vehicle.Vehicle;
+import rental.*;
+import vehicle.*;
 import payment.PaymentHistoryViewer;
 
 import java.io.Console;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Final {
@@ -55,6 +54,8 @@ public class Final {
                 System.out.println("1. 탈것 대여");
                 System.out.println("2. 결제 내역 조회");
                 System.out.println("3. 로그아웃");
+                System.out.println("4. 수리");
+                System.out.println("5. 신고");
                 System.out.print("선택: ");
 
                 int userChoice;
@@ -74,30 +75,43 @@ public class Final {
                         int vehicleChoice = Integer.parseInt(sc.nextLine());
 
                         // ✅ 2단계: 개별 차량 선택
-                        Vehicle vehicle = null;
+                        List<PrintStructure> p_vehicles;
+                        Vehicle vehicle=null;
+                        VehicleRepository  vehicleRepository = new VehicleRepository();
+                        String[] id_type;
+
                         if (vehicleChoice == 1) {
                             System.out.println("\n[자전거 선택]");
-                            System.out.println("1. Bike-01");
-                            System.out.println("2. Bike-02");
-                            System.out.println("3. Bike-03");
-                            System.out.print("선택: ");
-                            int bikeNum = Integer.parseInt(sc.nextLine());
-                            vehicle = new Bike("Bike-0" + bikeNum);
-
+                            p_vehicles = vehicleRepository.select("bike", null);
                         } else if (vehicleChoice == 2) {
                             System.out.println("\n[스쿠터 선택]");
-                            System.out.println("1. Scooter-01");
-                            System.out.println("2. Scooter-02");
-                            System.out.println("3. Scooter-03");
-                            System.out.print("선택: ");
-                            int scooterNum = Integer.parseInt(sc.nextLine());
-                            vehicle = new Scooter("Scooter-0" + scooterNum);
+                            p_vehicles = vehicleRepository.select("scooter", null);
 
                         } else {
                             System.out.println("잘못된 선택입니다.");
                             continue;
                         }
 
+                        for (PrintStructure value : p_vehicles) {
+                            System.out.println(value.getRN() + " ID: " + value.getId() +
+                                    ", Type: " + value.getType() + ", Status: " + value.getStatus());
+                        }
+
+                        System.out.print("선택: ");
+                        int vehicle_num = Integer.parseInt(sc.nextLine());
+                        if (vehicle_num>p_vehicles.size()||vehicle_num<=0) {
+                            continue;
+                        }
+                        String cid=p_vehicles.get(vehicle_num-1).getId();
+                        String ctype=p_vehicles.get(vehicle_num-1).getType();
+
+                        id_type = vehicleRepository.update(cid, false);
+                        if (id_type==null){
+                            System.out.println("사용불가 기기입니다.");
+                            continue;
+                        }
+                        if (ctype.equals("scooter")){vehicle = new Scooter(cid);}
+                        else if (ctype.equals("bike")){ vehicle = new Bike(cid);}
                         // 주행 시간 입력
                         System.out.print("주행 시간(분): ");
                         int minutes = Integer.parseInt(sc.nextLine());
@@ -114,6 +128,7 @@ public class Final {
                         // ✅ 요금 계산 (Rental + payment)
                         Rental rental = new Rental(vehicle, minutes);
                         double total = rental.processPayment(useCoupon, account.getId(), account.getName());
+                        vehicleRepository.update(id_type[0], true);
 
                         System.out.println("\n✅ 결제가 완료되었습니다!");
                         System.out.printf("이용자: %s (%s)\n", account.getName(), account.getId());
@@ -124,8 +139,12 @@ public class Final {
 
                     case 2 -> {
                         System.out.println("\n==== 결제 내역 조회 ====");
-                        // ✅ PaymentHistoryViewer 내부에서 header 중복 방지 및 null 필터링 필요
-                        PaymentHistoryViewer.viewPaymentHistory();
+
+                        if (account != null) {
+                            PaymentHistoryViewer.viewPaymentHistory(account.getId());
+                        } else {
+                            System.out.println("[오류] 로그인 정보가 없습니다. 먼저 로그인해주세요.");
+                        }
                     }
 
                     case 3 -> {
@@ -134,6 +153,55 @@ public class Final {
                         break;
                     }
 
+                    case 4 -> {
+                        List<PrintStructure> vehicles;
+                        System.out.println("장비를 수리합니다.");
+                        VehicleRepository  vehicleRepository = new VehicleRepository();
+                        vehicles=vehicleRepository.select(null, false);
+                        String[] resultInfo=new String[]{null};
+
+                        if (vehicles.isEmpty()){
+                            System.out.println("수리할 장비가 없습니다.");
+                            continue;
+                        }
+                        for (PrintStructure value : vehicles) {
+                            System.out.println(value.getRN() + " ID: " + value.getId() +
+                                    ", Type: " + value.getType() + ", Status: " + value.getStatus());
+                        }
+                        System.out.println("수리하고자 하는 장비를 선택하여주십시오");
+                        System.out.printf("입력 : ");
+                        int repair_num = Integer.parseInt(sc.nextLine());
+                        if  (repair_num>vehicles.size()||repair_num<=0) {
+                            System.out.println("out of bounds.");
+                            continue;
+                        }
+                        String cid=vehicles.get(repair_num-1).getId();
+                        resultInfo=vehicleRepository.Repairing(cid);
+                    }
+                    case 5 -> {
+                        List<PrintStructure> vehicles;
+                        System.out.println("장비 고장 신고");
+                        VehicleRepository  vehicleRepository = new VehicleRepository();
+                        vehicles=vehicleRepository.select(null, true);
+                        String[] resultInfo=new String[]{null};
+                        if (vehicles==null){
+                            System.out.println("신고할 수 있는 장비가 없습니다.");
+                            continue;
+                        }
+                        for (PrintStructure value : vehicles) {
+                            System.out.println(value.getRN() + " ID: " + value.getId() +
+                                    ", Type: " + value.getType() + ", Status: " + value.getStatus());
+                        }
+                        System.out.println("신고하고자 하는 장비를 선택하여주십시오");
+                        System.out.printf("입력 : ");
+                        int report_num = Integer.parseInt(sc.nextLine());
+                        if (report_num>vehicles.size()||report_num<=0) {
+                            System.out.println("out of bounds.");
+                            continue;
+                        }
+                        String cid=vehicles.get(report_num-1).getId();
+                        resultInfo=vehicleRepository.Report(cid);
+                    }
                     default -> System.out.println("잘못된 입력입니다.");
                 }
 

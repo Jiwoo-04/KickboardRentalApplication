@@ -1,0 +1,135 @@
+package AccountManage.accountmanage;
+
+import java.io.Console;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Arrays;
+
+/**
+ * 로그인, 회원가입에 필요한 절차를 수행
+ */
+public class LoginService {
+    private Connection conn;
+    private Statement stmt;
+    private Console console;
+    static final int MAX_ID_LENGTH = 20;
+    static final int MAX_PASSWORD_LENGTH = 20;
+    static final int MAX_NAME_LENGTH = 10;
+    static final int MAX_PHONENUMBER_LENGTH = 11;
+    static final int MAX_REGISTRATION_NUMBER_LENGTH = 14;
+
+
+    /**
+     * MySQL 드라이버를 로드, 데이터베이스와 연결
+     * @throws ClassNotFoundException JDBC 드라이버 로드 실패 시
+     * @throws SQLException 데이터베이스 연결 실패 시
+     */
+    public LoginService() throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        conn = DriverManager.getConnection(
+                "jdbc:mysql://14.34.82.127:3306/dkuschema",
+                "dku",
+                "dkudku");
+        stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        if((console = System.console()) == null) System.out.println("콘솔을 지원하지 않는 환경입니다.");
+    }
+    
+    /**
+     * 회원가입 수행
+     * @return 회원가입 성공 시 true, 취소 시 false
+     * @throws SQLException 데이터베이스 오류 시
+     */
+    public boolean register() throws SQLException {
+        String id, name, phoneNumber, registrationNumber;
+        char[] password;
+        while(true){
+            id = console.readLine("ID를 입력하세요(" + MAX_ID_LENGTH + "자 이내)(취소: quit): ");
+            if(id.equals("quit")) return false;
+            if(id.length() > MAX_ID_LENGTH) System.out.println("ID는 " + MAX_ID_LENGTH + "자 이내로 입력해야 합니다.");
+            else if(isIdExists(id)) System.out.println("이미 존재하는 ID입니다.");
+            else break;
+        }
+        while(true) {
+            password = console.readPassword("비밀번호를 입력하세요(" + MAX_PASSWORD_LENGTH + "자 이내): ");
+            if(String.valueOf(password).equals("quit")) return false;
+            if(password.length > MAX_PASSWORD_LENGTH) System.out.println("비밀번호는 " + MAX_PASSWORD_LENGTH + "자 이내로 입력해야 합니다.");
+            else break;
+        }
+        while(true) {
+            char[] confirmPassword = console.readPassword("비밀번호를 한 번 더 입력하세요: ");
+            if(String.valueOf(password).equals("quit")) return false;
+            if(!Arrays.equals(password, confirmPassword))
+                System.out.println("일치하지 않습니다.");
+            else break;
+        }
+        while(true) {
+            name = console.readLine("이름을 입력하세요(" + MAX_NAME_LENGTH + "자 이내): ");
+            if(name.equals("quit")) return false;
+            if(name.length() > MAX_NAME_LENGTH) System.out.println("이름은 " + MAX_NAME_LENGTH + "자 이내로 입력해야 합니다.");
+            else break;
+        }
+        while(true) {
+            phoneNumber = console.readLine("전화번호를 입력하세요(\"-\" 제외, " + MAX_PHONENUMBER_LENGTH + "자 이내): ");
+            if(phoneNumber.equals("quit")) return false;
+            if(phoneNumber.length() > MAX_PHONENUMBER_LENGTH) System.out.println("전화번호는 " + MAX_PHONENUMBER_LENGTH + "자 이내로 입력해야 합니다.");
+            else break;
+        }
+        while(true) {
+            registrationNumber = console.readLine("주민등록번호를 입력하세요(\"-\" 포함, " + MAX_REGISTRATION_NUMBER_LENGTH + "자 이내): ");
+            if(registrationNumber.equals("quit")) return false;
+            if(registrationNumber.length() > MAX_REGISTRATION_NUMBER_LENGTH) System.out.println("주민등록번호는 " + MAX_REGISTRATION_NUMBER_LENGTH + "자 이내로 입력해야 합니다.");
+            else break;
+        }
+        PreparedStatement pstmt = conn.prepareStatement(
+            "INSERT INTO dkuschema.accounts (id, password, name, phoneNumber, registrationNumber, role) VALUES (?, ?, ?, ?, ?, 'USER')"
+        );
+        pstmt.setString(1, id);
+        pstmt.setString(2, String.valueOf(password));
+        pstmt.setString(3, name);
+        pstmt.setString(4, phoneNumber);
+        pstmt.setString(5, registrationNumber);
+        pstmt.executeUpdate();
+        pstmt.close();
+        System.out.println("회원가입이 완료되었습니다.");
+        return true;
+    }
+
+    /**
+     * 로그인 수행<br>
+     * 로그인 성공 시 {@link Account} 객체 반환
+     * @return 로그인 성공 시 {@link Account} 객체, 취소 시 null
+     * @throws SQLException 데이터베이스 오류 시
+     * @see Account
+     */
+    public Account login() throws SQLException {
+        String id;
+        char[] password;
+        ResultSet rs;
+        while(true) {
+            id = console.readLine("ID를 입력하세요(취소: quit): ");
+            if(id.equals("quit")) return null;
+            rs = stmt.executeQuery("SELECT * FROM dkuschema.accounts WHERE id = '" + id + "'");
+            if(!rs.next()) System.out.println("존재하지 않는 ID입니다.");
+            else break;
+        }
+        while(true) {
+            password = console.readPassword("비밀번호를 입력하세요: ");
+            if(String.valueOf(password).equals("quit")) return null;
+            if(!rs.getString("password").equals(String.valueOf(password))) System.out.println("비밀번호가 틀렸습니다.");
+            else break;
+        }
+        System.out.println(rs.getString("name") + "님 환영합니다");
+        return new Account(conn.prepareStatement("DELETE FROM dkuschema.accounts WHERE id = '" + id + "'"), rs);
+    }
+
+    private boolean isIdExists(String id) throws SQLException {
+        ResultSet rs = stmt.executeQuery(
+                "SELECT * FROM dkuschema.accounts WHERE id = '" + id + "'");
+        return rs.next();
+    }
+
+}

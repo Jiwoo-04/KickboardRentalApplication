@@ -1,0 +1,17 @@
+UserID,UserName,VehicleType,Minutes,TotalFee,CouponUsed,DateTime
+null,null,Bike-01,30,2500.00,NO,2025-11-07 13:43:51
+null,null,Scooter-01,50,6400.00,YES,2025-11-07 13:44:45
+null,null,Bike-01,60,4000.00,NO,2025-11-07 13:59:55
+tlawltmd,심지승,Bike-01,60,3200.00,YES,2025-11-07 14:55:07
+tlawltmd,심지승,Scooter-03,120,15000.00,NO,2025-11-07 14:55:16
+dku_tj,dku_tj,Bike-01,90,5500.00,NO,2025-11-07 17:27:48
+dku_tj,dku_tj,Bike-02,90,5500.00,NO,2025-11-07 22:29:20
+dku_tj,dku_tj,bike_2,90,5500.00,NO,2025-11-07 22:31:20
+dku_tj,dku_tj,scooter_2,30,6000.00,NO,2025-11-08 15:37:36
+dku_tj,dku_tj,bike_1,30,2500.00,NO,2025-11-08 15:40:45
+dku_tj,dku_tj,scooter_1,30,6000.00,NO,2025-11-08 15:48:55
+dku_tj,dku_tj,bike_1,5,1250.00,NO,2025-11-08 16:30:25
+dku_tj,dku_tj,bike_1,30,2500.00,NO,2025-11-08 16:35:42
+dku_tj,dku_tj,scooter_2,40,5600.00,YES,2025-11-08 16:50:35
+dku_tj,dku_tj,bike_3,20,2000.00,NO,2025-11-08 16:55:25
+dku_tj,dku_tj,bike_3,30,2500.00,NO,2025-11-08 16:56:13

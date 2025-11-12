@@ -15,7 +15,6 @@ public class VehicleRepository extends Connect{
         PreparedStatement pstmt = null;
         ResultSet rs = null;
 
-
         try {
             conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASSWORD);
             if (type==(null)){
@@ -26,9 +25,6 @@ public class VehicleRepository extends Connect{
                 pstmt = conn.prepareStatement(sql);
 
             }
-
-
-
 
             rs = pstmt.executeQuery();
 

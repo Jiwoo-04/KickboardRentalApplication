@@ -8,7 +8,6 @@ import java.sql.SQLException;
 
 public class Demo {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        LoginService loginService = new LoginService();
         Console console = System.console();
         Account account;
         while(true) {
@@ -17,12 +16,12 @@ public class Demo {
                 choice = Integer.parseInt(console.readLine("1. 회원가입   2. 로그인   3. 종료\n선택: "));
             } catch (NumberFormatException e) { continue; }
             switch(choice) {
-                case 1 -> { loginService.register(); continue; }
+                case 1 -> { LoginService.INSTANCE.register(); continue; }
                 case 2 -> {}
                 case 3 -> { System.out.println("프로그램 종료"); return; }
                 default -> { continue; }
             }
-            if((account = loginService.login()) == null) continue;
+            if((account = LoginService.INSTANCE.login()) == null) continue;
             while(true) {
                 int accountChoice;
                 try{

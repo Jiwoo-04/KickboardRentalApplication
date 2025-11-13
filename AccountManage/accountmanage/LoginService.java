@@ -10,8 +10,8 @@ import java.sql.Statement;
 import java.util.Arrays;
 
 /**
- * 로그인, 회원가입에 필요한 절차를 수행
- * enum 기반 싱글턴 패턴
+ * 로그인, 회원가입에 필요한 절차를 수행<br>
+ * {@code LoginService.INSTANCE} 형태로 객체 참조 요망
  */
 public enum LoginService {
     INSTANCE;

@@ -109,6 +109,10 @@ public class Account {
     }
     /**
      * 결제 내역 저장
+     * @param vehicleId 장치 id
+     * @param time 대여 시간(분)
+     * @param fee 요금
+     * @param isCouponUsed 쿠폰 사용 여부
      * @throws SQLException 데이터베이스 오류 시
      */
     public void savePaymentRecord(String vehicleId, int time, double fee, boolean isCouponUsed) throws SQLException {
@@ -120,6 +124,7 @@ public class Account {
     }
     /**
      * @return 계정의 총 결제 금액
+     * @throws SQLException 데이터베이스 오류 시
      */
     public int getPaymentTotal() throws SQLException {
         try (Statement stmt = conn.createStatement();
@@ -174,7 +179,7 @@ public class Account {
     }
     /**
      * 계정 잔고 지정
-     * @param newRole 새 잔고
+     * @param newBalance 새 잔고
      * @throws SQLException 데이터베이스 오류 시
      */
     public void setBalance(int newBalance) throws SQLException {
@@ -186,7 +191,7 @@ public class Account {
     }
     /**
      * 계정 등급 지정
-     * @param newRole 새 등급
+     * @param newTier 새 등급
      * @throws SQLException 데이터베이스 오류 시
      */
     public void setTier(Tier newTier) throws SQLException {
@@ -198,7 +203,7 @@ public class Account {
     }
     /**
      * 계정 쿠폰 개수 지정
-     * @param newRole 새 쿠폰 개수
+     * @param newCouponCount 새 쿠폰 개수
      * @throws SQLException 데이터베이스 오류 시
      */
     public void setCouponCount(int newCouponCount) throws SQLException {

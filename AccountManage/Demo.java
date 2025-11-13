@@ -30,7 +30,7 @@ public class Demo {
                 switch(accountChoice) {
                     case 1 -> { account.changePassword(); continue; }
                     case 2 -> { if(!account.withdraw()) continue; }
-                    case 3 -> account.logout();
+                    // case 3 -> account.logout();
                     default -> { continue; }
                 }
                 break;

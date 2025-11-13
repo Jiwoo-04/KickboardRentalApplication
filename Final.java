@@ -128,6 +128,8 @@ public class Final {
                         Rental rental = new Rental(vehicle, minutes);
                         double total = rental.processPayment(useCoupon, account.id(), account.name());
                         vehicleRepository.update(id_type[0], true);
+                        // MySQL에 결제 내역 기록
+                        account.savePaymentRecord(cid, minutes, total, useCoupon);
 
                         System.out.println("\n✅ 결제가 완료되었습니다!");
                         System.out.printf("이용자: %s (%s)\n", account.name(), account.id());
@@ -148,7 +150,7 @@ public class Final {
 
                     case 3 -> {
                         System.out.println("로그아웃합니다.\n");
-                        account.logout();
+                        //account.logout();     deprecated
                         break;
                     }
 

@@ -17,7 +17,6 @@ public enum LoginService {
     INSTANCE;
 
     private Connection conn;
-    private Statement stmt;
     private Console console;
     static final int MAX_ID_LENGTH = 20;
     static final int MAX_PASSWORD_LENGTH = 20;
@@ -38,7 +37,6 @@ public enum LoginService {
                     "jdbc:mysql://14.34.82.127:3306/dkuschema",
                     "dku",
                     "dkudku");
-            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             if ((console = System.console()) == null)
                 System.out.println("콘솔을 지원하지 않는 환경입니다.");
         } catch (ClassNotFoundException | SQLException e) {
@@ -102,17 +100,17 @@ public enum LoginService {
             }
             break;
         }
-        PreparedStatement pstmt = conn.prepareStatement(
-            "INSERT INTO dkuschema.accounts (id, password, name, phoneNumber, registrationNumber, role, createdAt) VALUES (?, ?, ?, ?, ?, ?, NOW())"
-        );
-        pstmt.setString(1, id);
-        pstmt.setString(2, String.valueOf(password));
-        pstmt.setString(3, name);
-        pstmt.setString(4, phoneNumber);
-        pstmt.setString(5, registrationNumber);
-        pstmt.setString(6, role);
-        pstmt.executeUpdate();
-        pstmt.close();
+        try (PreparedStatement pstmt = conn.prepareStatement(
+            "INSERT INTO dkuschema.accounts (id, password, name, phoneNumber, registrationNumber, role) VALUES (?, ?, ?, ?, ?, ?)")
+        ) {
+            pstmt.setString(1, id);
+            pstmt.setString(2, String.valueOf(password));
+            pstmt.setString(3, name);
+            pstmt.setString(4, phoneNumber);
+            pstmt.setString(5, registrationNumber);
+            pstmt.setString(6, role);
+            pstmt.executeUpdate();
+        }
         System.out.println("회원가입이 완료되었습니다.");
         return true;
     }
@@ -127,28 +125,32 @@ public enum LoginService {
     public Account login() throws SQLException {
         String id;
         char[] password;
-        ResultSet rs;
-        while(true) {
-            id = console.readLine("ID를 입력하세요(취소: quit): ");
-            if(id.equals("quit")) return null;
-            rs = stmt.executeQuery("SELECT * FROM dkuschema.accounts WHERE id = '" + id + "'");
-            if(!rs.next()) System.out.println("존재하지 않는 ID입니다.");
-            else break;
+        try (Statement stmt = conn.createStatement()) {
+            ResultSet rs;
+            while(true) {
+                id = console.readLine("ID를 입력하세요(취소: quit): ");
+                if(id.equals("quit")) return null;
+                rs = stmt.executeQuery("SELECT * FROM dkuschema.accounts WHERE id = '" + id + "'");
+                if(!rs.next()) System.out.println("존재하지 않는 ID입니다.");
+                else break;
+            }
+            while(true) {
+                password = console.readPassword("비밀번호를 입력하세요: ");
+                if(String.valueOf(password).equals("quit")) return null;
+                if(!rs.getString("password").equals(String.valueOf(password))) System.out.println("비밀번호가 틀렸습니다.");
+                else break;
+            }
+            System.out.println(rs.getString("name") + "님 환영합니다");
+            rs.close();
         }
-        while(true) {
-            password = console.readPassword("비밀번호를 입력하세요: ");
-            if(String.valueOf(password).equals("quit")) return null;
-            if(!rs.getString("password").equals(String.valueOf(password))) System.out.println("비밀번호가 틀렸습니다.");
-            else break;
-        }
-        System.out.println(rs.getString("name") + "님 환영합니다");
-        return new Account(conn.prepareStatement("DELETE FROM dkuschema.accounts WHERE id = '" + id + "'"), rs);
+        return new Account(id, conn, console);
     }
 
     private boolean isIdExists(String id) throws SQLException {
-        ResultSet rs = stmt.executeQuery(
-                "SELECT * FROM dkuschema.accounts WHERE id = '" + id + "'");
-        return rs.next();
+        try (Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(
+            "SELECT * FROM dkuschema.accounts WHERE id = '" + id + "'")
+        ) { return rs.next(); }
     }
 
 }

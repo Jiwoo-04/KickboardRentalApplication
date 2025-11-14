@@ -6,6 +6,8 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Arrays;
+import AccountManage.accountmanage.tier.Tier;
+import AccountManage.accountmanage.tier.TierFactory;
 
 /**
  * 로그인한 사용자의 계정 정보를 관리<br>
@@ -35,7 +37,7 @@ public class Account {
             this.name = rs.getString("name");
             this.role = Role.valueOf(rs.getString("role"));
             this.balance = rs.getInt("balance");
-            this.tier = Tier.valueOf(rs.getString("tier"));
+            this.tier = TierFactory.fromString(rs.getString("tier"));
             this.couponCount = rs.getInt("couponCount");
         }
         // payment = stmt.executeQuery(
@@ -172,7 +174,7 @@ public class Account {
      */
     public void setRole(Role newRole) throws SQLException {
         try (Statement stmt = conn.createStatement()) {
-            stmt.executeUpdate("UPDATE dkuschema.accounts SET name = '"
+            stmt.executeUpdate("UPDATE dkuschema.accounts SET role = '"
             + newRole + "' WHERE id = '" + id + "'");
             this.role = newRole;
         }
@@ -184,7 +186,7 @@ public class Account {
      */
     public void setBalance(int newBalance) throws SQLException {
         try (Statement stmt = conn.createStatement()) {
-            stmt.executeUpdate("UPDATE dkuschema.accounts SET name = '"
+            stmt.executeUpdate("UPDATE dkuschema.accounts SET balance = '"
             + newBalance + "' WHERE id = '" + id + "'");
             this.balance = newBalance;
         }
@@ -196,8 +198,7 @@ public class Account {
      */
     public void setTier(Tier newTier) throws SQLException {
         try (Statement stmt = conn.createStatement()) {
-            stmt.executeUpdate("UPDATE dkuschema.accounts SET name = '"
-            + newTier + "' WHERE id = '" + id + "'");
+            stmt.executeUpdate("UPDATE dkuschema.accounts SET tier = '" + newTier.getName() + "' WHERE id = '" + id + "'");
             this.tier = newTier;
         }
     }
@@ -208,7 +209,7 @@ public class Account {
      */
     public void setCouponCount(int newCouponCount) throws SQLException {
         try (Statement stmt = conn.createStatement()) {
-            stmt.executeUpdate("UPDATE dkuschema.accounts SET name = '"
+            stmt.executeUpdate("UPDATE dkuschema.accounts SET couponCount = '"
             + newCouponCount + "' WHERE id = '" + id + "'");
             this.couponCount = newCouponCount;
         }

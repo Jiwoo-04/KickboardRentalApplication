@@ -1,5 +1,7 @@
 package AccountManage.accountmanage;
 
+import AccountManage.accountmanage.tier.*;
+
 import java.io.Console;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -125,22 +127,43 @@ public enum LoginService {
     public Account login() throws SQLException {
         String id;
         char[] password;
+        ResultSet rs;
         try (Statement stmt = conn.createStatement()) {
-            ResultSet rs;
-            while(true) {
+            while (true) {
                 id = console.readLine("ID를 입력하세요(취소: quit): ");
-                if(id.equals("quit")) return null;
+                if (id.equals("quit")) return null;
                 rs = stmt.executeQuery("SELECT * FROM dkuschema.accounts WHERE id = '" + id + "'");
-                if(!rs.next()) System.out.println("존재하지 않는 ID입니다.");
+                if (!rs.next()) System.out.println("존재하지 않는 ID입니다.");
                 else break;
             }
-            while(true) {
+            while (true) {
                 password = console.readPassword("비밀번호를 입력하세요: ");
-                if(String.valueOf(password).equals("quit")) return null;
-                if(!rs.getString("password").equals(String.valueOf(password))) System.out.println("비밀번호가 틀렸습니다.");
+                if (String.valueOf(password).equals("quit")) return null;
+                if (!rs.getString("password").equals(String.valueOf(password))) System.out.println("비밀번호가 틀렸습니다.");
                 else break;
             }
-            System.out.println(rs.getString("name") + "님 환영합니다");
+
+            // --- #1 총 사용 금액 가져오기 ---
+            double totalSpent = rs.getDouble("total_spent");
+
+            // --- #2 현재 티어 계산 (팩토리 메서드 패턴) ---
+            Tier newTier = TierFactory.create(totalSpent);
+
+            // --- #3 DB에 저장된 이전 티어 ---
+            Tier oldTier = TierFactory.fromString(rs.getString("tier"));
+
+            System.out.println("[" + newTier.getName() + "] " + rs.getString("name") + "님 환영합니다");
+
+            // --- 티어가 달라졌으면 DB 업데이트 ---
+            if (!newTier.equals(oldTier)) {
+                PreparedStatement updateTier = conn.prepareStatement(
+                        "UPDATE dkuschema.accounts SET tier = ? WHERE id = ?"
+                );
+                updateTier.setString(1, newTier.getName());
+                updateTier.setString(2, id);
+                updateTier.executeUpdate();
+            }
+
             rs.close();
         }
         return new Account(id, conn, console);

@@ -7,9 +7,4 @@ public class NormalTier implements Tier {
 
     @Override
     public double getDiscountRate() { return 0.0; }
-
-    @Override
-    public boolean isHigherThan(Tier other) {
-        return (other instanceof NormalTier) == false;
-    }
 }

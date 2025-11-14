@@ -117,12 +117,21 @@ public class Account {
      * @param isCouponUsed 쿠폰 사용 여부
      * @throws SQLException 데이터베이스 오류 시
      */
+
     public void savePaymentRecord(String vehicleId, int time, double fee, boolean isCouponUsed) throws SQLException {
         try (Statement stmt = conn.createStatement()) {
+            // 결제 내역 추가
             stmt.executeUpdate(
-                "INSERT INTO dkuschema.payments (userId, vehicleId, time, fee, isCouponUsed, paidAt) "
-            + "VALUES ('" + id + "', '" + vehicleId + "', " + time + ", " + fee + ", " + isCouponUsed + ", NOW());");
+                    "INSERT INTO dkuschema.payments (userId, vehicleId, time, fee, isCouponUsed, paidAt) "
+                            + "VALUES ('" + id + "', '" + vehicleId + "', " + time + ", " + fee + ", " + isCouponUsed + ", NOW());"
+            );
+            // total_spent 갱신
+            stmt.executeUpdate(
+                    "UPDATE dkuschema.accounts SET total_spent = total_spent + " + fee + " WHERE id = '" + id + "'"
+            );
         }
+        // ⭐ 총 사용금액 기반 티어 업데이트
+        updateTierAfterPayment();
     }
     /**
      * @return 계정의 총 결제 금액
@@ -214,5 +223,27 @@ public class Account {
             this.couponCount = newCouponCount;
         }
     }
+    private void updateTierAfterPayment() throws SQLException {
+        int totalSpent;
+        try (Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(
+                     "SELECT total_spent FROM dkuschema.accounts WHERE id = '" + id + "'")
+        ) {
+            rs.next();
+            totalSpent = rs.getInt("total_spent");
+        }
+        Tier oldTier = this.tier;
+        Tier newTier = TierFactory.create(totalSpent);
+        if (oldTier.getName().equals(newTier.getName())) {
+            return;
+        }
+        // DB 반영
+        setTier(newTier);
+        System.out.println("--------------------------------------------------------------------------");
+        System.out.println(" 축하합니다! " + name + "님의 티어가 ["
+                + oldTier.getName() + "] → [" + newTier.getName() + "] 로 상승하였습니다!");
+        System.out.println("--------------------------------------------------------------------------");
+    }
+
 
 }

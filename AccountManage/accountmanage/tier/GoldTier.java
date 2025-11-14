@@ -8,9 +8,4 @@ public class GoldTier implements Tier {
 
     @Override
     public double getDiscountRate() { return 0.20; }
-
-    @Override
-    public boolean isHigherThan(Tier other) {
-        return !(other instanceof GoldTier);
-    }
 }

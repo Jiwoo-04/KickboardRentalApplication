@@ -5,28 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7a0a972-f6cc-4bc6-866f-f590d2448b5a" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/payment/TierDiscount.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccountManage/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/tier/GoldTier.class" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/tier/GoldTier.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/tier/GoldTier.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/tier/GoldTier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/tier/NormalTier.class" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/tier/NormalTier.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/tier/NormalTier.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/tier/NormalTier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/tier/SilverTier.class" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/tier/SilverTier.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/tier/SilverTier.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/tier/SilverTier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/tier/Tier.class" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/tier/Tier.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/tier/Tier.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/tier/Tier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/tier/TierFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/tier/TierFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/tier/TierFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/tier/TierFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Final.class" beforeDir="false" afterPath="$PROJECT_DIR$/Final.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Final.java" beforeDir="false" afterPath="$PROJECT_DIR$/Final.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/TestPay.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/TestPay.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment/TierDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment/TierDiscount.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/payment_history.csv" beforeDir="false" afterPath="$PROJECT_DIR$/payment_history.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rental/Rental.class" beforeDir="false" afterPath="$PROJECT_DIR$/rental/Rental.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rental/Rental.java" beforeDir="false" afterPath="$PROJECT_DIR$/rental/Rental.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

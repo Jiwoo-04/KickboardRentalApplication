@@ -15,6 +15,8 @@ public class TierDiscount implements Payment {
     @Override
     public double pay() {
         double original = payment.pay(); // 정상 작동
-        return original * (1.0 - discountRate);
+        double tier_discount = original * (1.0 - discountRate);
+        System.out.println("티어할인 적용 (" + (discountRate * 100) + "% 할인): " + tier_discount + "원");
+        return tier_discount;
     }
 }

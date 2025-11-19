@@ -9,6 +9,7 @@
 - **전략 패턴(Strategy Pattern)** 과 **데코레이터 패턴(Decorator Pattern)** 을 활용한 기능 분리
 - 회원, 장비, 결제 모듈의 독립적 개발 및 유기적 통합
 - 추후 GUI 및 서버 연동으로 확장 가능한 구조 설계
+- **팩토리 패턴**을 활용한 티어별 할인 기능
 
 ---
 
@@ -18,7 +19,7 @@
 |------|--------|-----------|
 | 회원 관리 | **이주환** | 회원 가입, 로그인/로그아웃, 회원 DB 관리 |
 | 장비 관리 | **장태종(스쿠터)**, **송지우(자전거)** | 장비 대여·반납, 시간 계산, 고장 신고 (**전략 패턴**) |
-| 결제 관리 | **심지승** | 요금 계산, 추가 요금/할인 계산 (**데코레이터 패턴**), 결제 내역 관리 |
+| 결제 관리 | **심지승** | 요금 계산, 추가 요금/할인 계산 (**데코레이터 패턴**), 결제 내역 관리, 티어 관리(**팩토리 패턴** |
 
 ---
 
@@ -47,7 +48,6 @@
   - 요금 계산
   - 등급별 할인 적용
   - 결제 내역 기록 (CSV 파일)
-- 결제 수단은 **토큰화(Tokenization)** 방식으로 구현하여 보안성 강화
 ```
 ---
 
@@ -75,7 +75,7 @@
 | 구분 | 내용 |
 |------|------|
 | Language | Java (depending on implementation) |
-| Design Patterns | Strategy Pattern, Decorator Pattern |
+| Design Patterns | Strategy Pattern, Decorator Pattern, factory pattern |
 | Database | CSV (엑셀 파일 기반) |
 | Interface | Console CLI |
 | Architecture | Modular OOP Structure |

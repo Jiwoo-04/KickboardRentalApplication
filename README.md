@@ -74,7 +74,7 @@
 
 | 구분 | 내용 |
 |------|------|
-| Language | Python 3.x (or Java, depending on implementation) |
+| Language | Java (depending on implementation) |
 | Design Patterns | Strategy Pattern, Decorator Pattern |
 | Database | CSV (엑셀 파일 기반) |
 | Interface | Console CLI |

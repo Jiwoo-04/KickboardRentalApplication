@@ -126,7 +126,7 @@ public class Final {
 
                         // ✅ 요금 계산 (Rental + payment)
                         Rental rental = new Rental(vehicle, minutes);
-                        double total = rental.processPayment(useCoupon, account.id(), account.name());
+                        double total = rental.processPayment(useCoupon, account.id(), account.name(), account);
                         vehicleRepository.update(id_type[0], true);
                         // MySQL에 결제 내역 기록
                         account.savePaymentRecord(cid, minutes, total, useCoupon);

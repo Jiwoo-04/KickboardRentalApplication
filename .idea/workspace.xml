@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7a0a972-f6cc-4bc6-866f-f590d2448b5a" name="변경" comment="" />
+    <list default="true" id="f7a0a972-f6cc-4bc6-866f-f590d2448b5a" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountManage/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment/TierDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment/TierDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_history.csv" beforeDir="false" afterPath="$PROJECT_DIR$/payment_history.csv" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,11 +41,11 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;final&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Tier&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/shavi/OneDrive/Desktop/KickboardRentalApplication-final/KickboardRentalApplication-final&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/simjs/OneDrive/바탕 화면/KickboardRentalApplication&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,

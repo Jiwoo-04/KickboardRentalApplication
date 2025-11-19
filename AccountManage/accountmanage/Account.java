@@ -6,6 +6,8 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Arrays;
+import AccountManage.accountmanage.tier.Tier;
+import AccountManage.accountmanage.tier.TierFactory;
 
 /**
  * 로그인한 사용자의 계정 정보를 관리<br>
@@ -35,7 +37,7 @@ public class Account {
             this.name = rs.getString("name");
             this.role = Role.valueOf(rs.getString("role"));
             this.balance = rs.getInt("balance");
-            this.tier = Tier.valueOf(rs.getString("tier"));
+            this.tier = TierFactory.fromString(rs.getString("tier"));
             this.couponCount = rs.getInt("couponCount");
         }
         // payment = stmt.executeQuery(
@@ -115,12 +117,21 @@ public class Account {
      * @param isCouponUsed 쿠폰 사용 여부
      * @throws SQLException 데이터베이스 오류 시
      */
+
     public void savePaymentRecord(String vehicleId, int time, double fee, boolean isCouponUsed) throws SQLException {
         try (Statement stmt = conn.createStatement()) {
+            // 결제 내역 추가
             stmt.executeUpdate(
-                "INSERT INTO dkuschema.payments (userId, vehicleId, time, fee, isCouponUsed, paidAt) "
-            + "VALUES ('" + id + "', '" + vehicleId + "', " + time + ", " + fee + ", " + isCouponUsed + ", NOW());");
+                    "INSERT INTO dkuschema.payments (userId, vehicleId, time, fee, isCouponUsed, paidAt) "
+                            + "VALUES ('" + id + "', '" + vehicleId + "', " + time + ", " + fee + ", " + isCouponUsed + ", NOW());"
+            );
+            // total_spent 갱신
+            stmt.executeUpdate(
+                    "UPDATE dkuschema.accounts SET total_spent = total_spent + " + fee + " WHERE id = '" + id + "'"
+            );
         }
+        // ⭐ 총 사용금액 기반 티어 업데이트
+        updateTierAfterPayment();
     }
     /**
      * @return 계정의 총 결제 금액
@@ -172,7 +183,7 @@ public class Account {
      */
     public void setRole(Role newRole) throws SQLException {
         try (Statement stmt = conn.createStatement()) {
-            stmt.executeUpdate("UPDATE dkuschema.accounts SET name = '"
+            stmt.executeUpdate("UPDATE dkuschema.accounts SET role = '"
             + newRole + "' WHERE id = '" + id + "'");
             this.role = newRole;
         }
@@ -184,7 +195,7 @@ public class Account {
      */
     public void setBalance(int newBalance) throws SQLException {
         try (Statement stmt = conn.createStatement()) {
-            stmt.executeUpdate("UPDATE dkuschema.accounts SET name = '"
+            stmt.executeUpdate("UPDATE dkuschema.accounts SET balance = '"
             + newBalance + "' WHERE id = '" + id + "'");
             this.balance = newBalance;
         }
@@ -196,8 +207,7 @@ public class Account {
      */
     public void setTier(Tier newTier) throws SQLException {
         try (Statement stmt = conn.createStatement()) {
-            stmt.executeUpdate("UPDATE dkuschema.accounts SET name = '"
-            + newTier + "' WHERE id = '" + id + "'");
+            stmt.executeUpdate("UPDATE dkuschema.accounts SET tier = '" + newTier.getName() + "' WHERE id = '" + id + "'");
             this.tier = newTier;
         }
     }
@@ -208,10 +218,32 @@ public class Account {
      */
     public void setCouponCount(int newCouponCount) throws SQLException {
         try (Statement stmt = conn.createStatement()) {
-            stmt.executeUpdate("UPDATE dkuschema.accounts SET name = '"
+            stmt.executeUpdate("UPDATE dkuschema.accounts SET couponCount = '"
             + newCouponCount + "' WHERE id = '" + id + "'");
             this.couponCount = newCouponCount;
         }
     }
+    private void updateTierAfterPayment() throws SQLException {
+        int totalSpent;
+        try (Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(
+                     "SELECT total_spent FROM dkuschema.accounts WHERE id = '" + id + "'")
+        ) {
+            rs.next();
+            totalSpent = rs.getInt("total_spent");
+        }
+        Tier oldTier = this.tier;
+        Tier newTier = TierFactory.create(totalSpent);
+        if (oldTier.getName().equals(newTier.getName())) {
+            return;
+        }
+        // DB 반영
+        setTier(newTier);
+        System.out.println("--------------------------------------------------------------------------");
+        System.out.println(" 축하합니다! " + name + "님의 티어가 ["
+                + oldTier.getName() + "] → [" + newTier.getName() + "] 로 상승하였습니다!");
+        System.out.println("--------------------------------------------------------------------------");
+    }
+
 
 }

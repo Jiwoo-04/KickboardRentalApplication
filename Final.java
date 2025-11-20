@@ -49,12 +49,14 @@ public class Final {
 
             // 로그인 성공 시 사용자 메뉴
             while (true) {
+                System.out.printf("\n%s님의 잔액은 %.2f원 입니다.\n",account.name(), account.balance());
                 System.out.println("\n==== 사용자 메뉴 ====");
                 System.out.println("1. 탈것 대여");
                 System.out.println("2. 결제 내역 조회");
                 System.out.println("3. 로그아웃");
                 System.out.println("4. 수리");
                 System.out.println("5. 신고");
+                System.out.println("6. 잔액 충전");
                 System.out.print("선택: ");
 
                 int userChoice;
@@ -112,8 +114,9 @@ public class Final {
                         if (ctype.equals("scooter")){vehicle = new Scooter(cid);}
                         else if (ctype.equals("bike")){ vehicle = new Bike(cid);}
                         // 주행 시간 입력
-                        System.out.print("주행 시간(분): ");
+                        System.out.print("\n주행 시간(분): ");
                         int minutes = Integer.parseInt(sc.nextLine());
+
 
                         System.out.print("쿠폰을 사용하시겠습니까? (y/n): ");
                         boolean useCoupon = sc.nextLine().equalsIgnoreCase("y");
@@ -128,6 +131,18 @@ public class Final {
                         Rental rental = new Rental(vehicle, minutes);
                         double total = rental.processPayment(useCoupon, account.id(), account.name(), account);
                         vehicleRepository.update(id_type[0], true);
+
+                        double old_balance = account.balance();
+                        double new_balance = old_balance - total;
+                        if(new_balance<0){
+                            System.out.printf("잔액이 부족합니다 결제에 실패하였습니다.");
+                            continue;
+                        }
+                        account.setBalance(new_balance);
+
+
+
+
                         // MySQL에 결제 내역 기록
                         account.savePaymentRecord(cid, minutes, total, useCoupon);
 
@@ -202,6 +217,18 @@ public class Final {
                         }
                         String cid=vehicles.get(report_num-1).getId();
                         resultInfo=vehicleRepository.Report(cid);
+                    }
+                    case 6-> {
+                        System.out.printf("잔액을 충전합니다.\n입력: ");
+                        double add_balance = Integer.parseInt(sc.nextLine());
+                        double old_balance = account.balance();
+                        double new_balance = old_balance + add_balance;
+                        if(account.setBalance(new_balance)){
+                            System.out.println("충전이 완료되었습니다.");
+                        } else{
+                            System.out.println("충전에 실패하였습니다.");
+                        }
+                        //되면 account set balance 리턴을 boolean으로 받아 true 반환시 성공 false 반환시 실패 기능을 넣고 싶음
                     }
                     default -> System.out.println("잘못된 입력입니다.");
                 }

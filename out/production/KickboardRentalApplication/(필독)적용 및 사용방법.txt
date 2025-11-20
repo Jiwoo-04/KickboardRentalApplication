@@ -1,11 +1,11 @@
 final.java 코드를 실행하는 법
 
 1. 루트파일에서 터미널을 연다
-2. java -cp ".;AccountManage/mysql-connector-j-9.5.0.jar" Final를 붙여 넣는다
+2. java -cp ".;mysql-connector-j-9.5.0.jar" Final를 붙여 넣는다
 3. 만약 해당방법으로도 실행 되지 않는다면 그건 mySQL서버의 문제이니 "이주환" 님에게 따로 메시지를 보내서 서버를 열어 달라고 부탁 하십시오
 
 ---
-
+(+ javac는 안 해도 되고 java일 때만 해주세요)
 수정 후 코드 적용 방법
 
  : 코드를 수정한 후 반드시

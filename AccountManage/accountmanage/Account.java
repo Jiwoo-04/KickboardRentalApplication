@@ -19,7 +19,7 @@ public class Account {
     final private String id;
     final private String name;
     private Role role;
-    private int balance;
+    private double balance; //double로 바꾸어야 할거같음
     private Tier tier;
     private int couponCount;
     final private Connection conn;
@@ -36,7 +36,7 @@ public class Account {
             rs.next();
             this.name = rs.getString("name");
             this.role = Role.valueOf(rs.getString("role"));
-            this.balance = rs.getInt("balance");
+            this.balance = rs.getDouble("balance"); //이것도 double로 바꾸어야 할거같음
             this.tier = TierFactory.fromString(rs.getString("tier"));
             this.couponCount = rs.getInt("couponCount");
         }
@@ -163,7 +163,7 @@ public class Account {
      * @return 계정의 잔액
      * @throws SQLException 데이터베이스 오류 시
      */
-    public int balance() throws SQLException { return balance; }
+    public double balance() throws SQLException { return balance; } //이것도 return을 double로 해야할거같음
     /**
      * @return 계정의 등급
      * @throws SQLException 데이터베이스 오류 시
@@ -193,11 +193,12 @@ public class Account {
      * @param newBalance 새 잔고
      * @throws SQLException 데이터베이스 오류 시
      */
-    public void setBalance(int newBalance) throws SQLException {
+    public boolean setBalance(double newBalance) throws SQLException { //이것도 int에서 double로 바꾸어야할거같음 그리고 return도 void말고 boolean
         try (Statement stmt = conn.createStatement()) {
             stmt.executeUpdate("UPDATE dkuschema.accounts SET balance = '"
             + newBalance + "' WHERE id = '" + id + "'");
             this.balance = newBalance;
+            return true;
         }
     }
     /**

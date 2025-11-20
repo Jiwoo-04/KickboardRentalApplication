@@ -153,7 +153,6 @@ public enum LoginService {
             Tier oldTier = TierFactory.fromString(rs.getString("tier"));
 
             System.out.println("[" + newTier.getName() + "] " + rs.getString("name") + "님 환영합니다");
-
             // --- 티어가 달라졌으면 DB 업데이트 ---
             if (!newTier.equals(oldTier)) {
                 PreparedStatement updateTier = conn.prepareStatement(

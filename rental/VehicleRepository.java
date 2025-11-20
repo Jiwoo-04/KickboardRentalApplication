@@ -75,11 +75,11 @@ public class VehicleRepository extends Connect{
             pstmt.setBoolean(1, status);
             pstmt.setString(2, id);
 
-            System.out.println("Executing Return Query: " + updateSql.replace("?", "'" + id + "'"));
+            //System.out.println("Executing Return Query: " + updateSql.replace("?", "'" + id + "'"));
             updatedRows = pstmt.executeUpdate();
 
             if (updatedRows > 0) {
-                System.out.println("SUCCESS: " + id + " 차량의 상태를 '"+status+"'으로 변경했습니다.");
+                //System.out.println("SUCCESS: " + id + " 차량의 상태를 '"+status+"'으로 변경했습니다.");
                 rentalInfo = new String[]{id, String.valueOf(status)};
             } else {
                 System.out.println("FAIL: ID " + id + "를 가진 차량을 찾을 수 없거나 상태가 변경되지 않았습니다.");

@@ -1,21 +1,16 @@
-import AccountManage.accountmanage.Account;
-import AccountManage.accountmanage.LoginService;
+import AccountManage.accountmanage.*;
 import rental.Rental;
 import vehicle.Bike;
 import vehicle.Scooter;
 import vehicle.Vehicle;
 import payment.PaymentHistoryViewer;
-
-import java.io.Console;
 import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Final {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        LoginService loginService = new LoginService();
         Account account;
         Scanner sc = new Scanner(System.in);
-        Console console = System.console();
 
         while (true) {
             System.out.println("\n==== 메인 메뉴 ====");
@@ -33,11 +28,11 @@ public class Final {
 
             switch (choice) {
                 case 1 -> {
-                    loginService.register();
+                    LoginService.INSTANCE.register();
                     continue;
                 }
                 case 2 -> {
-                    account = loginService.login();
+                    account = LoginService.INSTANCE.login();
                     if (account == null) continue;
                 }
                 case 3 -> {
@@ -106,17 +101,17 @@ public class Final {
                         boolean useCoupon = sc.nextLine().equalsIgnoreCase("y");
 
                         // ✅ null 방지: account 객체에서 정보 확인
-                        if (account.getId() == null || account.getName() == null) {
+                        if (account.id() == null || account.name() == null) {
                             System.out.println("⚠ 사용자 정보가 올바르지 않습니다. 다시 로그인해주세요.");
                             continue;
                         }
 
                         // ✅ 요금 계산 (Rental + payment)
                         Rental rental = new Rental(vehicle, minutes);
-                        double total = rental.processPayment(useCoupon, account.getId(), account.getName());
+                        double total = rental.processPayment(useCoupon, account.id(), account.name());
 
                         System.out.println("\n✅ 결제가 완료되었습니다!");
-                        System.out.printf("이용자: %s (%s)\n", account.getName(), account.getId());
+                        System.out.printf("이용자: %s (%s)\n", account.name(), account.id());
                         System.out.printf("이용 수단: %s\n", vehicle.getType());
                         System.out.printf("이용 시간: %d분\n", minutes);
                         System.out.printf("총 결제 금액: %.2f원\n", total);
@@ -130,7 +125,6 @@ public class Final {
 
                     case 3 -> {
                         System.out.println("로그아웃합니다.\n");
-                        account.logout();
                         break;
                     }
 

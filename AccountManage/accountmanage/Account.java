@@ -172,7 +172,7 @@ public class Account {
      */
     public void setRole(Role newRole) throws SQLException {
         try (Statement stmt = conn.createStatement()) {
-            stmt.executeUpdate("UPDATE dkuschema.accounts SET name = '"
+            stmt.executeUpdate("UPDATE dkuschema.accounts SET role = '"
             + newRole + "' WHERE id = '" + id + "'");
             this.role = newRole;
         }
@@ -184,7 +184,7 @@ public class Account {
      */
     public void setBalance(int newBalance) throws SQLException {
         try (Statement stmt = conn.createStatement()) {
-            stmt.executeUpdate("UPDATE dkuschema.accounts SET name = '"
+            stmt.executeUpdate("UPDATE dkuschema.accounts SET balance = '"
             + newBalance + "' WHERE id = '" + id + "'");
             this.balance = newBalance;
         }
@@ -196,7 +196,7 @@ public class Account {
      */
     public void setTier(Tier newTier) throws SQLException {
         try (Statement stmt = conn.createStatement()) {
-            stmt.executeUpdate("UPDATE dkuschema.accounts SET name = '"
+            stmt.executeUpdate("UPDATE dkuschema.accounts SET tier = '"
             + newTier + "' WHERE id = '" + id + "'");
             this.tier = newTier;
         }
@@ -208,7 +208,7 @@ public class Account {
      */
     public void setCouponCount(int newCouponCount) throws SQLException {
         try (Statement stmt = conn.createStatement()) {
-            stmt.executeUpdate("UPDATE dkuschema.accounts SET name = '"
+            stmt.executeUpdate("UPDATE dkuschema.accounts SET couponCount = '"
             + newCouponCount + "' WHERE id = '" + id + "'");
             this.couponCount = newCouponCount;
         }

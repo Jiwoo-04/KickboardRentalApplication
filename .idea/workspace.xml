@@ -10,86 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7a0a972-f6cc-4bc6-866f-f590d2448b5a" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/KickboardRentalApplication_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/LoginService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/LoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/package-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/tier/GoldTier.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/tier/GoldTier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/tier/NormalTier.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/tier/NormalTier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/tier/SilverTier.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/tier/SilverTier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/tier/Tier.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/tier/Tier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountManage/accountmanage/tier/TierFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountManage/accountmanage/tier/TierFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Final.java" beforeDir="false" afterPath="$PROJECT_DIR$/Final.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KickboardRentalApplication.iml" beforeDir="false" afterPath="$PROJECT_DIR$/KickboardRentalApplication.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/(필독)적용 및 사용방법.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/(필독)적용 및 사용방법.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/Demo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/Demo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/accountmanage/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/accountmanage/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/accountmanage/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/accountmanage/LoginService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/allclasses-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/allclasses-index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/allpackages-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/allpackages-index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/element-list" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/element-list" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/help-doc.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/index-all.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/index-all.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/legal/jqueryUI.md" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/legal/jqueryUI.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/member-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/member-search-index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/overview-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/package-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/package-search-index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/resource-files/jquery-ui.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/resource-files/jquery-ui.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/resource-files/link.svg" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/resource-files/link.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/resource-files/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/resource-files/stylesheet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/script-files/jquery-ui.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/script-files/jquery-ui.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/script-files/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/script-files/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/script-files/search-page.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/script-files/search-page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/script-files/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/script-files/search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/type-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/AccountManage/docs/type-search-index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/Final.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/Final.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/KickboardRentalApplication.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/KickboardRentalApplication.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/payment/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/payment/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/payment/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/payment/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/payment/.idea/payment.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/payment/.idea/payment.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/payment/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/payment/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/payment/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/payment/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/payment/PaymentHistoryViewer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/payment/PaymentHistoryViewer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/payment/TestPay.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/payment_history.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/payment_history.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/rental/Connect.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/rental/Connect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/rental/Rental.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/rental/Rental.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KickboardRentalApplication/rental/VehicleRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KickboardRentalApplication/rental/VehicleRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/payment/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/payment/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/.idea/payment.iml" beforeDir="false" afterPath="$PROJECT_DIR$/payment/.idea/payment.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/payment/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final.class" beforeDir="false" afterPath="$PROJECT_DIR$/Final.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/payment/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/payment/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/BasicPayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment/BasicPayment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/CouponDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment/CouponDiscount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment/Payment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/PaymentDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment/PaymentDecorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/PaymentHistoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment/PaymentHistoryDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/PaymentHistoryViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment/PaymentHistoryViewer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment/TierDiscount.class" beforeDir="false" afterPath="$PROJECT_DIR$/payment/TierDiscount.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/payment/TierDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment/TierDiscount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/TimeBasedFee.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment/TimeBasedFee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rental/Connect.java" beforeDir="false" afterPath="$PROJECT_DIR$/rental/Connect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rental/PrintStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/rental/PrintStructure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rental/Rental.java" beforeDir="false" afterPath="$PROJECT_DIR$/rental/Rental.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rental/VehicleRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/rental/VehicleRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rental/VehicleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/rental/VehicleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vehicle/Bike.java" beforeDir="false" afterPath="$PROJECT_DIR$/vehicle/Bike.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vehicle/BikeBillingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/vehicle/BikeBillingStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vehicle/BillingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/vehicle/BillingStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vehicle/Scooter.java" beforeDir="false" afterPath="$PROJECT_DIR$/vehicle/Scooter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vehicle/ScooterBillingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/vehicle/ScooterBillingStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vehicle/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/vehicle/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_history.csv" beforeDir="false" afterPath="$PROJECT_DIR$/payment_history.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,18 +32,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "32193928-hub"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;32193928-hub&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Jiwoo-04/KickboardRentalApplication",
-    "accountId": "894c15b7-25f1-4ce7-9193-01f79d6bce2f"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Jiwoo-04/KickboardRentalApplication&quot;,
+    &quot;accountId&quot;: &quot;894c15b7-25f1-4ce7-9193-01f79d6bce2f&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
@@ -156,14 +82,6 @@
     &quot;애플리케이션.Final.executor&quot;: &quot;Debug&quot;
   }
 }</component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.27397.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.27397.103" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="디폴트 작업">
       <changelist id="f7a0a972-f6cc-4bc6-866f-f590d2448b5a" name="변경" comment="" />

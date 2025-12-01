@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35219c83-32e6-47f1-8371-7bf70cc6b562" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/../Final.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentHistoryViewer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AccountManage/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AccountManage/Demo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AccountManage/accountmanage/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AccountManage/accountmanage/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AccountManage/accountmanage/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AccountManage/accountmanage/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AccountManage/accountmanage/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AccountManage/accountmanage/LoginService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Final.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Final.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentHistoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentHistoryDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestPay.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestPay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rental/Rental.java" beforeDir="false" afterPath="$PROJECT_DIR$/../rental/Rental.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TierDiscount.class" beforeDir="false" afterPath="$PROJECT_DIR$/TierDiscount.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TierDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/TierDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../payment_history.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../payment_history.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +32,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;sim1&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Tier__Bal__Apply&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
 }</component>
